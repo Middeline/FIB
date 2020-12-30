@@ -1,0 +1,56 @@
+Curs 2019-20 Q1
+
+1.- Copia a la dreta aquestes quatre les tasques del pipeline gràfic, però ordenades d’acord amb l’ordre d’execució.
+
+1. Geometry shader
+2. Rasterització
+3. Fragment shader
+4. Alpha Blending
+
+
+
+2.- Copia a la dreta aquestes quatre les tasques del pipeline gràfic, però ordenades d’acord amb l’ordre d’execució.
+
+1. setUniformValue
+2. Vertex Shader
+3. Depth Test
+4. Stencil Test
+
+
+3.- Escriu quin és l’espai de coordenades inicial i final de la multiplicació de la modelViewProjectionMatrixInverse per un vèrtex.
+
+Inicial: Clip space
+Final: Object space
+
+
+4.- Escriu, per cada tasca, en quin o quins shaders (VS, GS, FS) és possible:
+
+(a) discard                 FS
+(b) EndPrimitive()          GS
+(c) Escriure gl_Position    VS + GS
+(d) dFdx, dFxy              FS
+
+
+5.- Què coordenada del fragment modifica la funció glPolygonOffset?  Z
+
+En quin espai la modifica?  Window space
+
+
+6.-Indica, amb la notació vista a classe, el light path que explica el color dominant del píxel indicat a la imatge.
+
+
+7.- Indica, per cada punt, si pot ser dins (DINS) o segur que no (FORA) la piràmide de visió d’una càmera perspectiva. Escriu una breu explicació.
+
+(a) (0.2, ‐1.5, 1.8, 2) en clip space
+DINS (tot entre +/‐ w)
+
+(b) (0, 0, 10, 1) en object space
+DINS (pot ser...)
+
+
+8.- Re‐escriu el codi GLSL subratllat amb una versió equivalent però més compacte:
+float t;
+vec3 color1, color2;
+vec3 color = t*color1 + (1‐t)*color2;
+
+vec3 color = mix(color2, color1, t);

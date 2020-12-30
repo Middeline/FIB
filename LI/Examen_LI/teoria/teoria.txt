@@ -1,0 +1,284 @@
+2018 PRIMAVERA
+---------------
+
+1A)  F sat <-> G |= F, G is any logical consequence of F.
+
+->) G any logical consequence of F -> F sat
+    F sat 
+    for some I, I |= F,  *definicion de satisfactible
+    I |= G,              *by definition of consequencia logica
+    then G is sat
+
+<-)  All G |= F are satisfactible
+    F sat       *by def of logical consequence
+
+
+1B) F is tautology <-> la seva Tseitin transformation, Tseitin(F) is a tautology? 
+
+Tseitin(F) is T <-> F is T 
+
+P V ¬P is tautology (taula de veritat sempre 1)
+
+i Tseitin(F) =
+  v e1           e1                =   e1
+p   ¬ e2         e1 <-> p v e2     =  ¬e1 v p v ¬p  i ¬p v e1  i p v e1
+    p            e2 <-> ¬p         =  ¬e2 v ¬p  i p v e2
+    
+
+3)
+
+AtM ostOne(x0, x1, x2, x3)
+2 auxiliars
+n log n clausulas
+
+x0 -> 00    -x0 v -a0    ^   -x0 v -a1
+x1 -> 01    -x1 v -a0    ^   -x1 v a1
+x2 -> 10
+x3 -> 11         ...
+
+
+4)
+PI1(n, m) = PI2(n, m) = n > m
+DI1 is the natural numbers
+DI2 is the integers
+
+F is AxAy P(y,x) -> (Ez P(z, x) ^ P(y, z))
+
+
+6) 
+A: realmadrid(Cristiano)
+B: WC_fp(Cristiano) ^ WA_fp(Messi)
+C: Ax WC_fp(x) -> modest(x)
+D: Ax realmadrid(x) ^ ¬modest(x)
+
+
+(A ^ B ^ C ^ D) ^ ¬E es insat
+
+By resolution:
+
+A i D: realmadridd(Cristiano)  ^ ¬modest(Cristiano)
+C i B: WC_fp(Cristiano) -> modest(Cristiano)
+Empty clause
+
+
+----------------------------------------------------------------------------------------------------
+
+2017 OTOÑO
+-----------
+
+1A)  F |= G V F |= ¬G?
+
+dada todas las interpretaciones de I, 
+I |= F, I |= G  *por def de conseq logica
+
+
+F tautologia
+G no
+
+
+1B) F |= G <-> F ^ ¬G is unsat?
+
+F |= G   ≡   F -> G  ≡   ¬F v G   *por definicion de conseq logica
+¬(¬F v G) es insat   ≡   F ^ ¬G   * POR NEGACION
+
+
+
+
+2A) p v q
+2B) NP Completo, SAT
+2C) Every satisfiable set of Horn clauses has a unique minimal model: the one found by the standard polynomial algorithm for Horn SAT doing unit propagation of the positive true literals, where we onlyset to true those variables that must be true, in any model
+2D) polynomial (in fact linear), unit propagation of positive literals
+
+
+
+
+3) pseudo-Boolean constraints
+
+Write the minimal set of clauses for 2x+ 3y+ 5z+ 6u+ 8v ≥ 11
+
+-v V -u
+-v V -z
+-v V -x V -y
+-u V -z V -y
+-u V -z V -x
+
+
+¬( -v V -u  ^   -v V -z    ^   -v V -x V -y   ^    -u V -z V -y    ^   -u V -z V -x)
+
+(v ^ u)  V   (v ^ z)  V ( v ^ x  ^ y)   V  (u ^ z ^ y)  V  (u ^ z ^ x)
+
+((v)  ^ (u V z)) V (v ^ x ^ y) V ((u ^z) ^ ( x V y))
+
+
+
+
+4) 
+4A) p ^¬p
+4B) p V ¬p
+4C) mes de 3 literals?
+F sat p V ¬p V q V ¬q
+
+
+5A)CONTRAEJEEMPLOOOOO,  ¬F V G insat, resolucio i factoritzacio 
+5B) F ^ ¬G insat, resolucio i factoritzacio.
+5C)
+    F ^ ¬G insat
+    ∀x p(a, x)∧ ∃y ¬q(y)  ^   ∀v∀w q(w) v ¬p(v,a)
+    
+    
+5D) contraexemple
+
+p = (x<y) Dom = N
+
+
+
+---------------------------------------------------
+
+1A)
+F i G tautologies
+H |= F ^ G
+
+H -> (F ^ G),
+¬H V (F ^ G),
+H ^ ¬F V ¬G, insat
+evalI(¬F) V evalI(¬G) = 0  min(evalI(H), 0) = 0, per tant insat
+Si ya que F y G son tautologias
+
+
+1B)
+
+p |= {p ∨ q ∨ r, ¬q ∨ r, ¬r}
+
+p -> p V r
+
+
+3) 
+CNF
+propositional clauses S
+S tautology
+S is a tautology iff all clausesCinSare tautologies. A clause is a tautology iff it contains some predicate symbol p and its negation ¬p. So the best method is to check this: linear time
+
+
+
+6)
+A: ∀x loves(x, f(x)) ^ m(x) loves(x, f(x))
+B: Stupid (John)
+C: Stupid(x) -> Stupid(f(x)) V Stupid(m(x)) 
+¬D: ExEy Stupit(x) ^ loves(y, x) 
+----
+
+A ^ B ^ C -> D
+¬(a ^ B ^ C) V C
+(A ^ B ^ C) ^ ¬C insat
+
+----
+
+...
+
+
+
+----------------------------------------------
+PRIMAVERA 2019
+
+1A) F |= G and F |= ¬G is unsat
+
+¬F v G    ^    ¬F v ¬G    -> unsat
+
+¬F  ^  ¬F
+
+eval(¬F ^ ¬F) = 0 per a que sigui unsat
+
+
+1B) 
+    F is unsat -> (G V F) -> G Tautology,
+    
+   (G v F) -> G is tautology  <->
+   para todo I, evalI(¬G ^ ¬F v G) = 1 <->
+   max(eval(¬G ^ ¬F), eval(G)) = 1 <->
+   max(1 - eval(G v F), eval(G)) = 1 <->
+   max(1- max(eval(G), eval(F)), eval(G)) <->
+   max(1 - max(eval(G), 0), eval(G))
+   max(1 - eval(G), eval(G)) -> TAUTOLOGIA
+   
+   
+3)
+    ¬u v ¬v,
+    ¬v v ¬z, 
+    ¬v v ¬y,
+    ¬u v ¬z v ¬y,
+    ¬u v ¬y v ¬x
+   
+   
+4)
+A: rich(PM)
+B: Ax diesel(x) -> smellbad(x)
+C: Ax (Ey OwnsCar(x, y) ^ rich(x) -> ¬smellbad(y)
+¬D: Ex OwnsCar(PM, y) ^ diesel(y)
+   
+
+A ^ B ^ C ^ ¬D => insat
+
+-------
+¬D i B = gets smellbadly(Cx)
+¬D i A = gets rich(PM)
+¬D i C = gets ¬smellbadly(Cx)
+EMPTY CLAUSE    contradiccio
+
+
+
+
+5)
+    F: ∀x∀y∃z s(x, z) = y
+
+
+6A)
+    ∀x p(c, x)∧∃y(q(y)∨¬p(y, y) ) ^ ∃z(p(z, c)∨q(z) ).
+    
+    F |= G?
+    
+    F ^ ¬G insat
+    
+    ∀x p(c, x) ∧ ∃y (q(y) ∨ ¬p(y, y) ) ^ ∀z(¬p(z, c) ^ ¬q(z))
+    
+    F: p(c, x) and                     G: ¬p(z, c)
+    F2: (q(y) v ¬p(y, y)               G2: ¬q(z)
+    
+    z = c
+    x = c
+    
+    
+6B)
+    ∀x(p(x, x)∧ ¬p(x, f(x))∧ ¬p(x, g(x))∧ ¬p(f(x), g(x)) )
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
